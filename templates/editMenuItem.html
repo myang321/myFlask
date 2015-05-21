@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>edit menu item for {{rest.name}}</h1>
+
+<form method='POST' enctype='multipart/form-data'
+      action='{{url_for("editMenuItem", restaurant_id = rest.id,menu_id=menu.id) }}'>
+    name <input name='newItemName' type='text' value='{{menu.name}}'> <br><br>
+    price &nbsp;<input name='newItemPrice' type='text' value='{{menu.price}}'><br><br>
+    course <input name='newItemCourse' type='text' value='{{menu.course}}'><br><br>
+    description<br> <textarea cols="40" rows="5" name='newItemDescription'>
+    {{menu.description}}
+    </textarea>
+    <br><br>
+    <input type='submit' value='Edit'>
+</form>
+</body>
+</html>
